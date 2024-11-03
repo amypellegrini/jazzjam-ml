@@ -1,0 +1,26 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`buildElementTree > should build an element tree from fast XML parser output of a compressed musicxml file 1`] = `
+ElementTreeBuilder {
+  "_children": [
+    ElementTreeBuilder {
+      "_children": [
+        ElementTreeBuilder {
+          "_children": [],
+          "attrib": {
+            "full-path": "score.xml",
+          },
+          "tag": "rootfile",
+          "text": "",
+        },
+      ],
+      "attrib": {},
+      "tag": "rootfiles",
+      "text": "",
+    },
+  ],
+  "attrib": {},
+  "tag": "container",
+  "text": "",
+}
+`;

@@ -1,0 +1,199 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`generateMidiEvents > handles chord notes 1`] = `
+[
+  {
+    "channel": 1,
+    "deltaTime": 0,
+    "noteNumber": 48,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 0,
+    "noteNumber": 52,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 480,
+    "noteNumber": 48,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 0,
+    "noteNumber": 52,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+]
+`;
+
+exports[`generateMidiEvents > handles chords mixed with silences 1`] = `
+[
+  {
+    "channel": 1,
+    "deltaTime": 0,
+    "noteNumber": 48,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 0,
+    "noteNumber": 52,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 480,
+    "noteNumber": 48,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 0,
+    "noteNumber": 52,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 480,
+    "noteNumber": 55,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 480,
+    "noteNumber": 55,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+]
+`;
+
+exports[`generateMidiEvents > handles silence between notes 1`] = `
+[
+  {
+    "channel": 1,
+    "deltaTime": 0,
+    "noteNumber": 48,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 480,
+    "noteNumber": 48,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 480,
+    "noteNumber": 48,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 480,
+    "noteNumber": 48,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+]
+`;
+
+exports[`generateMidiEvents > handles swing eighth notes 1`] = `
+[
+  {
+    "channel": 1,
+    "deltaTime": 0,
+    "noteNumber": 48,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 320,
+    "noteNumber": 48,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 0,
+    "noteNumber": 55,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 160,
+    "noteNumber": 55,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+]
+`;
+
+exports[`generateMidiEvents > returns MIDI events for a sequence of notes 1`] = `
+[
+  {
+    "channel": 1,
+    "deltaTime": 0,
+    "noteNumber": 48,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 480,
+    "noteNumber": 48,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 0,
+    "noteNumber": 55,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 480,
+    "noteNumber": 55,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+]
+`;
+
+exports[`generateMidiEvents > returns MIDI events for a single note 1`] = `
+[
+  {
+    "channel": 1,
+    "deltaTime": 0,
+    "noteNumber": 48,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 480,
+    "noteNumber": 48,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+]
+`;

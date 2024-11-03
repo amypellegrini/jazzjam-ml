@@ -1,0 +1,488 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`generateWalkingBass > returns a single note 33 for final A chord 1`] = `
+[
+  {
+    "channel": 1,
+    "deltaTime": 3840,
+    "programNumber": 32,
+    "type": "programChange",
+  },
+  {
+    "channel": 1,
+    "deltaTime": 0,
+    "noteNumber": 45,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 320,
+    "noteNumber": 45,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 480,
+    "noteNumber": 45,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 1200,
+    "noteNumber": 45,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "deltaTime": 0,
+    "type": "endOfTrack",
+  },
+]
+`;
+
+exports[`generateWalkingBass > returns a single note 34 for final Bb chord 1`] = `
+[
+  {
+    "channel": 1,
+    "deltaTime": 3840,
+    "programNumber": 32,
+    "type": "programChange",
+  },
+  {
+    "channel": 1,
+    "deltaTime": 0,
+    "noteNumber": 46,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 320,
+    "noteNumber": 46,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 480,
+    "noteNumber": 46,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 1200,
+    "noteNumber": 46,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "deltaTime": 0,
+    "type": "endOfTrack",
+  },
+]
+`;
+
+exports[`generateWalkingBass > returns a single note 34 for final Cbb chord 1`] = `
+[
+  {
+    "channel": 1,
+    "deltaTime": 3840,
+    "programNumber": 32,
+    "type": "programChange",
+  },
+  {
+    "channel": 1,
+    "deltaTime": 0,
+    "noteNumber": 34,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 320,
+    "noteNumber": 34,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 480,
+    "noteNumber": 34,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 1200,
+    "noteNumber": 34,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "deltaTime": 0,
+    "type": "endOfTrack",
+  },
+]
+`;
+
+exports[`generateWalkingBass > returns a single note 35 for final B chord 1`] = `
+[
+  {
+    "channel": 1,
+    "deltaTime": 3840,
+    "programNumber": 32,
+    "type": "programChange",
+  },
+  {
+    "channel": 1,
+    "deltaTime": 0,
+    "noteNumber": 47,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 320,
+    "noteNumber": 47,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 480,
+    "noteNumber": 47,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 1200,
+    "noteNumber": 47,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "deltaTime": 0,
+    "type": "endOfTrack",
+  },
+]
+`;
+
+exports[`generateWalkingBass > returns a single note 35 for final Cb chord 1`] = `
+[
+  {
+    "channel": 1,
+    "deltaTime": 3840,
+    "programNumber": 32,
+    "type": "programChange",
+  },
+  {
+    "channel": 1,
+    "deltaTime": 0,
+    "noteNumber": 35,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 320,
+    "noteNumber": 35,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 480,
+    "noteNumber": 35,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 1200,
+    "noteNumber": 35,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "deltaTime": 0,
+    "type": "endOfTrack",
+  },
+]
+`;
+
+exports[`generateWalkingBass > returns a single note 36 for final C chord 1`] = `
+[
+  {
+    "channel": 1,
+    "deltaTime": 3840,
+    "programNumber": 32,
+    "type": "programChange",
+  },
+  {
+    "channel": 1,
+    "deltaTime": 0,
+    "noteNumber": 36,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 320,
+    "noteNumber": 36,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 480,
+    "noteNumber": 36,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 1200,
+    "noteNumber": 36,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "deltaTime": 0,
+    "type": "endOfTrack",
+  },
+]
+`;
+
+exports[`generateWalkingBass > returns a single note 37 for final C# chord 1`] = `
+[
+  {
+    "channel": 1,
+    "deltaTime": 3840,
+    "programNumber": 32,
+    "type": "programChange",
+  },
+  {
+    "channel": 1,
+    "deltaTime": 0,
+    "noteNumber": 37,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 320,
+    "noteNumber": 37,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 480,
+    "noteNumber": 37,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 1200,
+    "noteNumber": 37,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "deltaTime": 0,
+    "type": "endOfTrack",
+  },
+]
+`;
+
+exports[`generateWalkingBass > returns a single note 37 for final Db chord 1`] = `
+[
+  {
+    "channel": 1,
+    "deltaTime": 3840,
+    "programNumber": 32,
+    "type": "programChange",
+  },
+  {
+    "channel": 1,
+    "deltaTime": 0,
+    "noteNumber": 37,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 320,
+    "noteNumber": 37,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 480,
+    "noteNumber": 37,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 1200,
+    "noteNumber": 37,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "deltaTime": 0,
+    "type": "endOfTrack",
+  },
+]
+`;
+
+exports[`generateWalkingBass > returns a single note 38 for final Cx chord 1`] = `
+[
+  {
+    "channel": 1,
+    "deltaTime": 3840,
+    "programNumber": 32,
+    "type": "programChange",
+  },
+  {
+    "channel": 1,
+    "deltaTime": 0,
+    "noteNumber": 38,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 320,
+    "noteNumber": 38,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 480,
+    "noteNumber": 38,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 1200,
+    "noteNumber": 38,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "deltaTime": 0,
+    "type": "endOfTrack",
+  },
+]
+`;
+
+exports[`generateWalkingBass > returns a single note 38 for final D chord 1`] = `
+[
+  {
+    "channel": 1,
+    "deltaTime": 3840,
+    "programNumber": 32,
+    "type": "programChange",
+  },
+  {
+    "channel": 1,
+    "deltaTime": 0,
+    "noteNumber": 38,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 320,
+    "noteNumber": 38,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 480,
+    "noteNumber": 38,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 1200,
+    "noteNumber": 38,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "deltaTime": 0,
+    "type": "endOfTrack",
+  },
+]
+`;
+
+exports[`generateWalkingBass > transforms resulting sequence from realm to MIDI events 1`] = `
+[
+  {
+    "channel": 1,
+    "deltaTime": 3840,
+    "programNumber": 32,
+    "type": "programChange",
+  },
+  {
+    "channel": 1,
+    "deltaTime": 0,
+    "noteNumber": 31,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 1920,
+    "noteNumber": 31,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 0,
+    "noteNumber": 36,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 320,
+    "noteNumber": 36,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 480,
+    "noteNumber": 36,
+    "type": "noteOn",
+    "velocity": 100,
+  },
+  {
+    "channel": 1,
+    "deltaTime": 1200,
+    "noteNumber": 36,
+    "type": "noteOff",
+    "velocity": 0,
+  },
+  {
+    "deltaTime": 0,
+    "type": "endOfTrack",
+  },
+]
+`;

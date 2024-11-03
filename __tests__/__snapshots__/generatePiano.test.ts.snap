@@ -1,0 +1,86 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`generatePiano > should generate a MIDI piano track 1`] = `
+{
+  "leftHand": [
+    {
+      "channel": 2,
+      "deltaTime": 3840,
+      "programNumber": 0,
+      "type": "programChange",
+    },
+    {
+      "deltaTime": 0,
+      "type": "endOfTrack",
+    },
+  ],
+  "rightHand": [
+    {
+      "channel": 2,
+      "deltaTime": 3840,
+      "programNumber": 0,
+      "type": "programChange",
+    },
+    {
+      "channel": 2,
+      "deltaTime": 0,
+      "noteNumber": 62,
+      "type": "noteOn",
+      "velocity": 100,
+    },
+    {
+      "channel": 2,
+      "deltaTime": 480,
+      "noteNumber": 62,
+      "type": "noteOff",
+      "velocity": 0,
+    },
+    {
+      "channel": 2,
+      "deltaTime": 0,
+      "noteNumber": 67,
+      "type": "noteOn",
+      "velocity": 100,
+    },
+    {
+      "channel": 2,
+      "deltaTime": 480,
+      "noteNumber": 67,
+      "type": "noteOff",
+      "velocity": 0,
+    },
+    {
+      "channel": 2,
+      "deltaTime": 0,
+      "noteNumber": 60,
+      "type": "noteOn",
+      "velocity": 100,
+    },
+    {
+      "channel": 2,
+      "deltaTime": 480,
+      "noteNumber": 60,
+      "type": "noteOff",
+      "velocity": 0,
+    },
+    {
+      "channel": 2,
+      "deltaTime": 0,
+      "noteNumber": 60,
+      "type": "noteOn",
+      "velocity": 100,
+    },
+    {
+      "channel": 2,
+      "deltaTime": 480,
+      "noteNumber": 60,
+      "type": "noteOff",
+      "velocity": 0,
+    },
+    {
+      "deltaTime": 0,
+      "type": "endOfTrack",
+    },
+  ],
+}
+`;
