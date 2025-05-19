@@ -4,7 +4,6 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import {
   realmConfig,
-  BassPartAbsoluteHarmony,
   WalkingBassHarmony,
   WalkingBassSequence,
 } from "./realmConfig";
