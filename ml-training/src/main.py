@@ -1,48 +1,133 @@
-import requests
+from fetchData import fetchData
 
-# Define the base URL of your API
-base_url = "http://localhost:3000"  # Replace with your actual API URL
+sequences_data, harmonies_data = fetchData()
 
-# Endpoint for fetching all walking bass harmonies
-sequences_endpoint = "/walking-bass-sequences"
-harmonies_endpoint = "/walking-bass-harmonies"
+root_step_categories = ["A", "B", "C", "D", "E", "F", "G"]
+root_step_mapping = {step: i for i, step in enumerate(root_step_categories)}
 
-sequences_url = base_url + sequences_endpoint
-harmonies_url = base_url + harmonies_endpoint
+harmony_kind_categories = [
+    "augmented" "augmented,-seventh",
+    "diminished" "diminished,-seventh",
+    "dominant" "dominant,-11th",
+    "dominant-13th",
+    "dominant-ninth",
+    "half-diminished",
+    "major" "major,-11th",
+    "major-13th",
+    "major-minor",
+    "major-ninth",
+    "major-seventh",
+    "major-sixth",
+    "minor" "minor,-11th",
+    "minor-13th",
+    "minor-ninth",
+    "minor-seventh",
+    "minor-sixth",
+    "none" "suspended,-fourth",
+    "suspended-second",
+]
 
-try:
-    # Send a GET request to the harmonies endpoint
-    sequences_data = requests.get(sequences_url)
-    harmonies_data = requests.get(harmonies_url)
+harmony_kind_mapping = {kind: i for i, kind in enumerate(harmony_kind_categories)}
 
-    # Check if the request was successful (status code 200 OK)
-    if sequences_data.status_code == 200:
-        # Parse the JSON response
-        sequences_data = sequences_data.json()
-        print("Successfully fetched sequences data:")
-        # You can now work with the harmonies_data (which will be a list of dictionaries)
-        # For example, you can print the first harmony:
-        if sequences_data:
-            print(sequences_data[0])
-    else:
-        print(f"Failed to fetch sequences. Status code: {sequences_data.status_code}")
-        if sequences_data.text:
-            print(f"Response body: {sequences_data.text}")
+start_pitch_step_categories = ["A", "B", "C", "D", "E", "F", "G"]
+start_pitch_step_mapping = {
+    step: i for i, step in enumerate(start_pitch_step_categories)
+}
 
-    if harmonies_data.status_code == 200:
-        harmonies_data = harmonies_data.json()
-        print("Successfully fetched harmonies data:")
-        if harmonies_data:
-            print(harmonies_data[0])
-    else:
-        print(f"Failed to fetch harmonies. Status code: {harmonies_data.status_code}")
+target_pitch_step_categories = ["A", "B", "C", "D", "E", "F", "G"]
+target_pitch_step_mapping = {
+    step: i for i, step in enumerate(target_pitch_step_categories)
+}
 
-except requests.exceptions.RequestException as e:
-    print(f"An error occurred during the request: {e}")
+
+def one_hot_encode(category, mapping):
+    vector = [0] * len(mapping)
+    if category in mapping:
+        index = mapping[category]
+        vector[index] = 1
+    return vector
+
+
+encoded_harmonies = []
+
+for harmony in harmonies_data:
+
+    print(harmony)
+
+    encoded_harmony = {
+        "keyFifths": harmony["keyFifths"],
+        "beats": harmony["beats"],
+        "beatsType": harmony["beatsType"],
+        "harmonyRootStep": one_hot_encode(
+            harmony["harmonyRootStep"], root_step_mapping
+        ),
+        "harmonyRootAlter": harmony["harmonyRootAlter"],
+        "harmonyKind": one_hot_encode(harmony["harmonyKind"], harmony_kind_mapping),
+        "divisions": harmony["divisions"],
+        "startPitchStep": one_hot_encode(
+            harmony["startPitchStep"], start_pitch_step_mapping
+        ),
+        "startPitchOctave": harmony["startPitchOctave"],
+        "startPitchAlter": harmony["startPitchAlter"],
+        "targetPitchStep": one_hot_encode(
+            harmony["targetPitchStep"], target_pitch_step_mapping
+        ),
+        "targetPitchOctave": harmony["targetPitchOctave"],
+        "targetPitchAlter": harmony["targetPitchAlter"],
+        "harmonyDuration": harmony["harmonyDuration"],
+        "sequenceId": harmony["sequenceId"],
+    }
+    encoded_harmonies.append(encoded_harmony)
+
+
+def encode_note(note):
+    print("Note: ")
+    print(note)
+
+    encoded = {}
+    encoded["duration"] = note["duration"]
+    encoded["rest"] = (
+        1 if note.get("rest", False) else 0
+    )  # Default to False if 'rest' is missing
+    encoded["chord"] = (
+        1 if note.get("chord", False) else 0
+    )  # Default to False if 'chord' is missing
+    encoded["step"] = one_hot_encode(note["pitchStep"], root_step_mapping)
+    encoded["octave"] = note["pitchOctave"]
+    encoded["alter"] = note["pitchAlter"]
+
+    return encoded
+
+
+encoded_sequences = []
+
+for sequence_data in sequences_data:
+    encoded_sequence = [encode_note(note) for note in sequence_data["sequence"]]
+    encoded_sequences.append(
+        {"_id": sequence_data["_id"], "encoded_sequence": encoded_sequence}
+    )
+
+print(encoded_sequences[0])
+print(encoded_harmonies[0])
 
 sequence_map = {}
 
-for sequence in sequences_data:
-    sequence_map[sequence["_id"]] = sequence["sequence"]
+for sequence in encoded_sequences:
+    sequence_map[sequence["_id"]] = sequence["encoded_sequence"]
 
-print(sequence_map)
+training_pairs = []
+
+for harmony in encoded_harmonies:
+
+    sequence_id = harmony["sequenceId"]
+
+    if sequence_id not in sequence_map:
+        print(f"Sequence {sequence_id} not found in sequence map")
+        continue
+
+    sequence = sequence_map[sequence_id]
+
+    training_pairs.append({"sequence": sequence, "harmony": harmony})
+
+print("")
+print(training_pairs[0])

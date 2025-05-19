@@ -15,10 +15,5 @@ def fetchData():
         else:
             return f"Error: Sequences status {sequences_data.status_code}"
 
-        # if sequences_data.status_code == 200 and harmonies_data.status_code == 200:
-        #     return f"Sequences: {sequences_data.json()}\nHarmonies: {harmonies_data.json()}"
-        # else:
-        #     return f"Error: Sequences status {sequences_data.status_code}, Harmonies status {harmonies_data.status_code}"
-
     except requests.exceptions.RequestException as e:
         return f"Request error: {str(e)}"
