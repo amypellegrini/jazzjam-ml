@@ -3,3 +3,5 @@ data-api/node_modules
 data-api/bundle.realm.lock
 data-api/bundle.realm.backup-log
 data-api/bundle.v23.backup.realm
+.venv
+.vscode
