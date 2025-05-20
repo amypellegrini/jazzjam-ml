@@ -1,6 +1,29 @@
 from encodeHarmony import encodeHarmony
 import pytest
 
+# Base harmony object that can be reused across tests
+BASE_HARMONY = {
+    "_id": 0,
+    "keyFifths": 0,
+    "beats": 4,
+    "beatsType": 4,
+    "harmonyRootStep": "D",
+    "divisions": 1,
+    "harmonyRootAlter": 0,
+    "harmonyKind": "minor-seventh",
+    "harmonyDuration": 2,
+    "sequenceId": "95f250d2-e85c-485e-b666-df55fa845257",
+    "startPitchStep": "D",
+    "startPitchOctave": 3,
+    "startPitchAlter": 0,
+    "targetPitchStep": "G",
+    "targetPitchOctave": 3,
+    "targetPitchAlter": 0,
+    "bassStep": None,
+    "bassAlter": 0,
+    "style": "swing",
+}
+
 
 @pytest.mark.parametrize(
     "root_step,expected_encoding",
@@ -15,29 +38,8 @@ import pytest
     ],
 )
 def test_root_step_one_hot_encoding(root_step, expected_encoding):
-    harmony = (
-        {
-            "_id": 0,
-            "keyFifths": 0,
-            "beats": 4,
-            "beatsType": 4,
-            "harmonyRootStep": root_step,
-            "divisions": 1,
-            "harmonyRootAlter": 0,
-            "harmonyKind": "minor-seventh",
-            "harmonyDuration": 2,
-            "sequenceId": "95f250d2-e85c-485e-b666-df55fa845257",
-            "startPitchStep": "D",
-            "startPitchOctave": 3,
-            "startPitchAlter": 0,
-            "targetPitchStep": "G",
-            "targetPitchOctave": 3,
-            "targetPitchAlter": 0,
-            "bassStep": None,
-            "bassAlter": 0,
-            "style": "swing",
-        },
-    )
+    # Create a copy of the base harmony and set the root step
+    harmony = (dict(BASE_HARMONY, harmonyRootStep=root_step),)
     encoded_harmony_df = encodeHarmony(harmony)
 
     # --- Assertion Part ---
