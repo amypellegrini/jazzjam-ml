@@ -57,9 +57,9 @@ def test_root_step_one_hot_encoding(root_step, expected_encoding):
     ), f"Encoding mismatch for root_step '{root_step}'"
 
 
-def test_drops_id_from_harmony():
+def test_drops_unwanted_columns_from_harmony():
     encoded_harmony_df = encodeHarmony([BASE_HARMONY])
 
-    print("encoded_harmony_df", encoded_harmony_df)
-
     assert "_id" not in encoded_harmony_df.columns
+    assert "sequenceId" not in encoded_harmony_df.columns
+    assert "style" not in encoded_harmony_df.columns
