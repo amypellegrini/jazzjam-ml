@@ -1,7 +1,0 @@
-                                                                       sequence
-0  [{'duration': '2', 'pitchStep': 'D', 'pitchOctave': '3', 'pitchAlter': '0'}]
-1  [{'duration': '2', 'pitchStep': 'G', 'pitchOctave': '3', 'pitchAlter': '0'}]
-2  [{'duration': '2', 'pitchStep': 'C', 'pitchOctave': '3', 'pitchAlter': '0'}]
-3  [{'duration': '2', 'pitchStep': 'A', 'pitchOctave': '2', 'pitchAlter': '0'}]
-4  [{'duration': '2', 'pitchStep': 'D', 'pitchOctave': '3', 'pitchAlter': '0'}]
-5  [{'duration': '2', 'pitchStep': 'G', 'pitchOctave': '3', 'pitchAlter': '0'}]
