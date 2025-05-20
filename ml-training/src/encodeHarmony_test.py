@@ -52,10 +52,14 @@ def test_root_step_one_hot_encoding(root_step, expected_encoding):
     # The .iloc[0] gets the first row, .tolist() converts it to a list
     actual_encoding = encoded_harmony_df[root_step_columns].iloc[0].tolist()
 
-    print(f"Input root_step: {root_step}")
-    print(f"Actual encoding: {actual_encoding}")
-    print(f"Expected encoding: {expected_encoding}")
-
     assert (
         actual_encoding == expected_encoding
     ), f"Encoding mismatch for root_step '{root_step}'"
+
+
+def test_drops_id_from_harmony():
+    encoded_harmony_df = encodeHarmony([BASE_HARMONY])
+
+    print("encoded_harmony_df", encoded_harmony_df)
+
+    assert "_id" not in encoded_harmony_df.columns

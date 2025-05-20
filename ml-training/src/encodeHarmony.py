@@ -4,6 +4,7 @@ from sklearn.preprocessing import OneHotEncoder
 
 def encodeHarmony(harmony):
     harmony_df = pd.DataFrame(harmony)
+    harmony_df = harmony_df.drop(columns=["_id"])
 
     all_root_step_categories = ["A", "B", "C", "D", "E", "F", "G"]
 
@@ -26,8 +27,5 @@ def encodeHarmony(harmony):
 
     harmony_df = pd.concat([harmony_df, encoded_df], axis=1)
     harmony_df = harmony_df.drop(columns=["harmonyRootStep"])
-
-    print("\nEncoded DataFrame:")
-    print(harmony_df)
 
     return harmony_df
