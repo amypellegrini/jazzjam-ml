@@ -1,7 +1,7 @@
 from encodeHarmony import encodeHarmony
 import pytest
+import pandas as pd
 
-# Base harmony object that can be reused across tests
 BASE_HARMONY = {
     "_id": 0,
     "keyFifths": 0,
@@ -223,3 +223,10 @@ def test_drops_unwanted_columns_from_harmony():
     assert "_id" not in encoded_harmony_df.columns
     assert "sequenceId" not in encoded_harmony_df.columns
     assert "style" not in encoded_harmony_df.columns
+
+
+def test_encodes_harmony_as_dataframe(snapshot):
+    encoded_harmony_df = encodeHarmony([BASE_HARMONY])
+    assert isinstance(encoded_harmony_df, pd.DataFrame)
+
+    snapshot.assert_match(encoded_harmony_df.to_string(), "encoded_harmony_df.txt")
