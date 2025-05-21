@@ -3,6 +3,7 @@ import express, { Request, Response } from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import {
+  PianoSequence,
   realmConfig,
   WalkingBassHarmony,
   WalkingBassSequence,
@@ -19,6 +20,16 @@ const realm = new Realm(realmConfig);
 app.get("/walking-bass-sequences", async (req: Request, res: Response) => {
   try {
     const sequences = realm.objects(WalkingBassSequence);
+    res.json(sequences);
+  } catch (error) {
+    console.error("Error fetching sequences:", error);
+    res.status(500).json({ error: "Failed to fetch sequences" });
+  }
+});
+
+app.get("/piano-sequences", async (req: Request, res: Response) => {
+  try {
+    const sequences = realm.objects(PianoSequence);
     res.json(sequences);
   } catch (error) {
     console.error("Error fetching sequences:", error);
