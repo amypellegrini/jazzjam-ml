@@ -123,6 +123,4 @@ def encodeHarmony(harmony):
         index=harmony_df.index,
     )
 
-    print(encoded_df)
-
     return encoded_df
