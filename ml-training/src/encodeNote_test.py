@@ -47,12 +47,27 @@ def test_hot_encodes_pitch_step(pitch_step, expected_encoding):
         False,
     ],
 )
-def test_drops_chord_property(chord_value):
+def test_drops_unwanted_columns(chord_value):
     note = dict(BASE_NOTE, chord=chord_value)
     encoded_note_df = encodeNote(note)
 
     assert "chord" not in encoded_note_df.columns
     assert "remainder__chord" not in encoded_note_df.columns
+
+
+@pytest.mark.parametrize(
+    "rest_value,expected_encoding",
+    [
+        (None, 0),
+        (True, 1),
+        (False, 0),
+    ],
+)
+def test_encodes_rest_correctly(rest_value, expected_encoding):
+    note = dict(BASE_NOTE, rest=rest_value)
+    encoded_note_df = encodeNote(note)
+
+    assert encoded_note_df.iloc[0]["remainder__rest"] == expected_encoding
 
 
 def test_encodes_note_as_dataframe(snapshot):

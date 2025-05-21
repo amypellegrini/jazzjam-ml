@@ -10,6 +10,9 @@ def encodeNote(note):
     note_df = pd.DataFrame([note])
     note_df = note_df.drop(columns=["chord"])
 
+    note_df["rest"] = note_df["rest"].apply(lambda x: bool(x))
+    note_df["rest"] = note_df["rest"].astype(int)
+
     note_df["pitchStep"] = note_df["pitchStep"].fillna("__MISSING__")
 
     note_df["pitchStep"] = pd.Categorical(
