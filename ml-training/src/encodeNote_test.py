@@ -1,5 +1,6 @@
 from encodeNote import encodeNote
 import pytest
+import pandas as pd
 
 BASE_NOTE = {
     "duration": 1,
@@ -36,3 +37,26 @@ def test_hot_encodes_pitch_step(pitch_step, expected_encoding):
     actual_encoding = encoded_note_df[pitch_step_columns].iloc[0].tolist()
 
     assert actual_encoding == expected_encoding
+
+
+@pytest.mark.parametrize(
+    "chord_value",
+    [
+        None,
+        True,
+        False,
+    ],
+)
+def test_drops_chord_property(chord_value):
+    note = dict(BASE_NOTE, chord=chord_value)
+    encoded_note_df = encodeNote(note)
+
+    assert "chord" not in encoded_note_df.columns
+    assert "remainder__chord" not in encoded_note_df.columns
+
+
+def test_encodes_note_as_dataframe(snapshot):
+    encoded_note_df = encodeNote(BASE_NOTE)
+
+    assert isinstance(encoded_note_df, pd.DataFrame)
+    snapshot.assert_match(encoded_note_df.to_string(), "encoded_note_df.txt")

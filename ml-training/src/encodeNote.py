@@ -8,6 +8,7 @@ all_pitch_step_categories = ["A", "B", "C", "D", "E", "F", "G", "__MISSING__"]
 
 def encodeNote(note):
     note_df = pd.DataFrame([note])
+    note_df = note_df.drop(columns=["chord"])
 
     note_df["pitchStep"] = note_df["pitchStep"].fillna("__MISSING__")
 
@@ -26,7 +27,8 @@ def encodeNote(note):
                 ),
                 ["pitchStep"],
             ),
-        ]
+        ],
+        remainder="passthrough",
     )
 
     encoded_data_array = preprocessor.fit_transform(note_df)
