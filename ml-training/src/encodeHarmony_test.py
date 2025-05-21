@@ -45,7 +45,8 @@ def test_root_step_one_hot_encoding(root_step, expected_encoding):
     # --- Assertion Part ---
     # Define the possible root step values in the order they are encoded
     root_step_columns = [
-        f"harmonyRootStep_{step}" for step in ["A", "B", "C", "D", "E", "F", "G"]
+        f"ohe_harmony_root_step__harmonyRootStep_{step}"
+        for step in ["A", "B", "C", "D", "E", "F", "G"]
     ]
 
     # Select the one-hot encoded columns for the first (and only) row
@@ -55,6 +56,80 @@ def test_root_step_one_hot_encoding(root_step, expected_encoding):
     assert (
         actual_encoding == expected_encoding
     ), f"Encoding mismatch for root_step '{root_step}'"
+
+
+@pytest.mark.parametrize(
+    "harmony_kind",
+    [
+        "augmented",
+        "augmented-seventh",
+        "diminished",
+        "diminished-seventh",
+        "dominant",
+        "dominant-11th",
+        "dominant-13th",
+        "dominant-ninth",
+        "half-diminished",
+        "major",
+        "major-11th",
+        "major-13th",
+        "major-minor",
+        "major-ninth",
+        "major-seventh",
+        "major-sixth",
+        "minor",
+        "minor-11th",
+        "minor-13th",
+        "minor-ninth",
+        "minor-seventh",
+        "minor-sixth",
+        "none",
+        "suspended-fourth",
+        "suspended-second",
+    ],
+)
+def test_harmony_kind_one_hot_encoding(harmony_kind):
+    harmony = (dict(BASE_HARMONY, harmonyKind=harmony_kind),)
+    encoded_harmony_df = encodeHarmony(harmony)
+
+    harmony_kind_columns = [
+        f"ohe_harmony_kind__harmonyKind_{kind}"
+        for kind in [
+            "augmented",
+            "augmented-seventh",
+            "diminished",
+            "diminished-seventh",
+            "dominant",
+            "dominant-11th",
+            "dominant-13th",
+            "dominant-ninth",
+            "half-diminished",
+            "major",
+            "major-11th",
+            "major-13th",
+            "major-minor",
+            "major-ninth",
+            "major-seventh",
+            "major-sixth",
+            "minor",
+            "minor-11th",
+            "minor-13th",
+            "minor-ninth",
+            "minor-seventh",
+            "minor-sixth",
+            "none",
+            "suspended-fourth",
+            "suspended-second",
+        ]
+    ]
+
+    actual_encoding = encoded_harmony_df[harmony_kind_columns].iloc[0].tolist()
+    expected_encoding = [0.0] * len(harmony_kind_columns)
+    expected_encoding[
+        harmony_kind_columns.index(f"ohe_harmony_kind__harmonyKind_{harmony_kind}")
+    ] = 1.0
+
+    assert actual_encoding == expected_encoding
 
 
 def test_drops_unwanted_columns_from_harmony():
