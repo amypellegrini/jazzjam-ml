@@ -48,6 +48,14 @@ def encodeHarmony(harmony):
         harmony_df["harmonyRootStep"], categories=all_root_step_categories
     )
 
+    harmony_df["targetPitchStep"] = pd.Categorical(
+        harmony_df["targetPitchStep"], categories=all_root_step_categories
+    )
+
+    harmony_df["startPitchStep"] = pd.Categorical(
+        harmony_df["startPitchStep"], categories=all_root_step_categories
+    )
+
     harmony_df["harmonyKind"] = pd.Categorical(
         harmony_df["harmonyKind"], categories=all_harmony_kind_categories
     )
@@ -66,6 +74,24 @@ def encodeHarmony(harmony):
                     handle_unknown="error",
                 ),
                 ["harmonyRootStep"],
+            ),
+            (
+                "ohe_harmony_target_step",
+                OneHotEncoder(
+                    categories=[all_root_step_categories],
+                    sparse_output=False,
+                    handle_unknown="error",
+                ),
+                ["targetPitchStep"],
+            ),
+            (
+                "ohe_harmony_start_step",
+                OneHotEncoder(
+                    categories=[all_root_step_categories],
+                    sparse_output=False,
+                    handle_unknown="error",
+                ),
+                ["startPitchStep"],
             ),
             (
                 "ohe_harmony_kind",
