@@ -5,6 +5,8 @@ from sklearn.compose import ColumnTransformer
 
 all_root_step_categories = ["A", "B", "C", "D", "E", "F", "G"]
 
+all_bass_step_categories = ["A", "B", "C", "D", "E", "F", "G", "__MISSING__"]
+
 all_harmony_kind_categories = [
     "augmented",
     "augmented-seventh",
@@ -37,6 +39,7 @@ all_harmony_kind_categories = [
 def encodeHarmony(harmony):
     harmony_df = pd.DataFrame(harmony)
 
+    harmony_df["bassStep"] = harmony_df["bassStep"].fillna("__MISSING__")
     harmony_df = harmony_df.drop(columns=["_id"])
     harmony_df = harmony_df.drop(columns=["sequenceId"])
     harmony_df = harmony_df.drop(columns=["style"])
@@ -47,6 +50,10 @@ def encodeHarmony(harmony):
 
     harmony_df["harmonyKind"] = pd.Categorical(
         harmony_df["harmonyKind"], categories=all_harmony_kind_categories
+    )
+
+    harmony_df["bassStep"] = pd.Categorical(
+        harmony_df["bassStep"], categories=all_bass_step_categories
     )
 
     preprocessor = ColumnTransformer(
@@ -68,6 +75,15 @@ def encodeHarmony(harmony):
                     handle_unknown="error",
                 ),
                 ["harmonyKind"],
+            ),
+            (
+                "ohe_harmony_bass_step",
+                OneHotEncoder(
+                    categories=[all_bass_step_categories],
+                    sparse_output=False,
+                    handle_unknown="error",
+                ),
+                ["bassStep"],
             ),
         ],
         remainder="passthrough",
